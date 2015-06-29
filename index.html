@@ -1,0 +1,344 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <title>Sainsburys test</title>
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+    <script src="./bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-styles/paper-styles.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+    <link rel="import" href="bower_components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
+    <link rel="import" href="bower_components/iron-pages/iron-pages.html">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+        }
+        paper-toolbar ,paper-tabs, paper-menu,.navfloatsleft, .topnav, .middlenav {
+           width:100%;
+        }
+        .navfloatsleft {
+            margin: 0 100px;
+        }
+        .navfloatsleft, paper-toolbar {
+            min-height: 100px;
+        }
+        paper-tabs {
+            height: 85px;
+        }
+        
+        #tabsContainer.paper-tabs {
+            height:50%;
+        }
+        #bottomBar.paper-toolbar {
+            height: 30px;
+        }
+        iron-pages div, {
+        @apply(--layout);
+        @apply(--layout-center);
+        @apply(--layout-center-justified);
+        @apply(--paper-font-display1);
+            width: 100%;
+            height: 100%;
+        }
+
+        iron-pages div article {
+            width: 80%;
+            margin:auto;
+        }
+        iron-pages div:nth-child(1) {
+            background-color: var(--google-blue-500);
+        }
+        iron-pages div:nth-child(2) {
+            background-color: var(--google-red-500);
+        }
+        iron-pages div:nth-child(3) {
+            background-color: var(--google-green-500);
+        }
+        .w_4_3, .w_1_1  {
+        @apply(--layout);
+        @apply(--layout-right);
+        @apply(--layout-center-justified);
+        @apply(--paper-font-display1);
+        }
+        .w_4_3 {width:400px;  display: inline-block; clear: both;}
+        .w_1_1 {  width: 100px;float: right;clear: both; display: inline-block}
+
+        .img_1_1 {width: 150px; height: 150px;}
+        .img_4_3 {width: 400px; height: 300px;}
+
+        .topnav {height: 65px;}
+        .logo {width:100px; height:100px;float: left;margin-right: 20px}
+        .companyname {margin-left: 10px; font-size: 46px;}
+        .mediaicons {float: right ;clear: none}
+        .submenu {float: right; clear:none;display: inline-block;}
+        .heading_4_3 {font-size: 24px;margin: 12px 0;}
+        .heading_1_1 {font-size: 16px;margin: 8px 0;}
+        .author {font-size: 12px; margin: 6px 0;}
+        @media screen and (max-width: 635px) {
+            .w_1_1, #desktopnav  {
+                display: none;
+            }
+            .mediaicons {clear: both}
+            .companyname{
+                font-size: 24px;
+            }
+            paper-tabs {
+                width: auto;
+            }
+            iron-pages div article {
+                width: 100%;
+            }
+            #mobilenav {
+                top: 100px;
+            }
+        }
+        @media screen and (min-width: 635px) {
+            #mobilenav  {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="fullbleed layout vertical" unresolved>
+    <paper-header-panel class="flex" condenses="true" mode="waterfall-tall">
+        <paper-toolbar class="tall">
+            <div class="top topnav">
+                <img src="content/images/image_one.png" class="logo">
+                <div class="companyname">Chuck Norris</div>
+            </div>
+            <div class="middle middlenav">
+                <nav>
+                    <paper-button  raised id="mobilenav">Menu</paper-button>
+                    <!--paper-icon-button icon="menu" on-tap="menuAction"></paper-icon-button-->
+                    <paper-icon-button class="mediaicons" src="content/images/facebook.png"></paper-icon-button>
+                    <paper-icon-button class="mediaicons" src="content/images/twitter.png"></paper-icon-button>
+                    <paper-icon-button class="mediaicons" src="content/images/googleplus.png"></paper-icon-button>
+                </nav>
+            </div>
+            <div class="bottom navfloatsleft">
+
+                <paper-menu>
+
+                    <paper-tabs selected="0" id="desktopnav">
+                        <paper-tab>Home</paper-tab>
+                        <paper-tab>eBooks</paper-tab>
+                        <paper-tab>Magazines</paper-tab>
+                        <paper-tab>Movies</paper-tab>
+                        <paper-tab>Help</paper-tab>
+                        <paper-tab>Login</paper-tab>
+
+                    </paper-tabs>
+
+                </paper-menu>
+            </div>
+        </paper-toolbar>
+
+
+
+        <iron-pages selected="0" class="content">
+            <div>
+                <article>
+
+                    <section class="w_1_1" >
+                        <h2 class="heading_1_1">A guide to snoopsetting</h2>
+                        <img src="content/images/image_one.png" class="img_1_1">
+                    </section>
+                    <section class="w_1_1">
+                        <h2 class="heading_1_1">Welcome to the Surveillance State</h2>
+                        <img src="content/images/image_one.png" class="img_1_1">
+                    </section>
+
+                    <section class="w_4_3">
+                        <h1 class="heading_4_3">Lorem Ipsum Dolor Sit</h1>
+                        <aside class="author">posted on 15 May 2015 by Author</aside>
+                        <img src="content/images/image_one.png" class="img_4_3">
+                        <ul class="submenu">
+                            <li><h4>More...</h4></li>
+                            <li><a href="#" title="here's an Link #1">Link #1</a></li>
+                            <li><a href="#" title="another one">Another link</a></li>
+                            <li><a href="#" title="the last link">Third link</a></li>
+                        </ul>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetuer
+                            adipiscing elit. Etiam fermentum. Integer
+                            fringilla. Integer fringilla. Pellentesque ac
+                            turpis. Sed elementum, felis quis porttitor
+                            sollicitudin, augue nulla sodales sapien,
+                            amet posuere quam purus at lacus. Nam id neque. Morbi
+                            pulvinar nulla sit amet nisl. Etiam pharetra lacus sed velit
+                            imperdiet bibendum.
+                        </p>
+                        <p>
+                            Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                            justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                            magna. Nam consectetuer mollis dolor. Aenean ligula.
+                            Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                            et dolor.
+                        </p>
+
+                    </section>
+
+                </article>
+            </div>
+            <div>
+                <article>
+                    <h1>eBooks</h1>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer
+                        adipiscing elit. Etiam fermentum. Integer
+                        fringilla. Integer fringilla. Pellentesque ac
+                        turpis. Sed elementum, felis quis porttitor
+                        sollicitudin, augue nulla sodales sapien,
+                        amet posuere quam purus at lacus. Nam id neque. Morbi
+                        pulvinar nulla sit amet nisl. Etiam pharetra lacus sed velit
+                        imperdiet bibendum.
+                    </p>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer
+                        adipiscing elit. Etiam fermentum. Integer
+                        fringilla. Integer fringilla. Pellentesque ac
+                        turpis. Sed elementum, felis quis porttitor
+                        sollicitudin, augue nulla sodales sapien,
+                        amet posuere quam purus at lacus. Nam id neque. Morbi
+                        pulvinar nulla sit amet nisl. Etiam pharetra lacus sed velit
+                        imperdiet bibendum.
+                    </p>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                </article>
+            </div>
+            <div>
+                <article>
+                    <h1>Magazines</h1>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer
+                        adipiscing elit. Etiam fermentum. Integer
+                        fringilla. Integer fringilla. Pellentesque ac
+                        turpis. Sed elementum, felis quis porttitor
+                        sollicitudin, augue nulla sodales sapien,
+                        amet posuere quam purus at lacus. Nam id neque. Morbi
+                        pulvinar nulla sit amet nisl. Etiam pharetra lacus sed velit
+                        imperdiet bibendum.
+                    </p>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                </article>
+            </div>
+            <div>
+                <article>
+                    <h1>Movies</h1>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                </article>
+            </div>
+            <div>
+                <article>
+                    <h1>Help</h1>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetuer
+                        adipiscing elit. Etiam fermentum. Integer
+                        fringilla. Integer fringilla. Pellentesque ac
+                        turpis. Sed elementum, felis quis porttitor
+                        sollicitudin, augue nulla sodales sapien,
+                        amet posuere quam purus at lacus. Nam id neque. Morbi
+                        pulvinar nulla sit amet nisl. Etiam pharetra lacus sed velit
+                        imperdiet bibendum.
+                    </p>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+
+                </article>
+            </div>
+            <div>
+                <article>
+                    <h1>Login</h1>
+                    <p>
+                        Sed quis elit. In hac habitasse platea dictumst. Maecenas
+                        justo. Donec interdum vestibulum libero. Nam laoreet dui sed
+                        magna. Nam consectetuer mollis dolor. Aenean ligula.
+                        Aliquam sed erat. Donec interdum vestibulum libero. Mauris
+                        et dolor.
+                    </p>
+                </article>
+            </div>
+        </iron-pages>
+    </paper-header-panel>
+    <script>
+        document.addEventListener('click', function(e) {
+            var tabs = document.querySelector('paper-tabs');
+            var pages = document.querySelector('iron-pages');
+            var tablist = document.querySelector('paper-button');
+
+            if(tabs) {
+                pages.selected = tabs.selected;
+            } else if(tablist){
+                pages.selected = tablist.selected;
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

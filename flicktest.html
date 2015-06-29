@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <script type="text/javascript">
+
+            function flickrFav(id) {
+                if(document.getElementById(id).classList.contains('selected')){
+                    document.getElementById(id).classList.remove('selected');
+                } else {
+                    document.getElementById(id).classList.add('selected');
+                    sessionStorage.setItem(id, true);
+                }
+            };
+
+            function flickrJSONP(url) {
+                var script = document.createElement('script');
+                script.src = url;
+
+                var head = document.getElementsByTagName('head')[0];
+                head.appendChild(script);
+            };
+
+            function flickrCB(data) {
+                console.log(data);
+                document.querySelector('#title').innerHTML = data.title;
+
+                var flickrImg = document.createElement('img');
+                var flickrContainer  = document.querySelector('#images');
+
+                for (i in data.items) {
+
+                    var flickrImg = document.createElement('img');
+
+                    flickrImg.src = data.items[i].media.m;
+                    flickrImg.classList.add('flickr_image');
+
+                    if(sessionStorage.getItem(data.items[i].title)){
+
+                        flickrImg.classList.add('selected');
+
+                    };
+
+                    flickrImg.id = data.items[i].title;
+                    flickrImg.setAttribute('onclick', 'flickrFav(this.id)');
+
+                    flickrContainer.appendChild(flickrImg);
+                }
+
+            }
+
+            var tags = 'london';
+            flickrJSONP('http://api.flickr.com/services/feeds/photos_public.gne?format=json&jsoncallback=flickrCB&tags='+tags);
+
+
+        </script>
+        <style>
+            img.flickr_image {margin: 10px; border: solid 10px #fff;}
+            img.selected {border: solid 10px #00c853;}
+        </style>
+    </head>
+<body>
+    <h1 id="title"></h1>
+    <div id="images">
+
+    </div>
+
+</body>
+</html>
